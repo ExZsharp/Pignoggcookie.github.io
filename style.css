@@ -1,0 +1,30 @@
+.img-dipfp {
+    width: 300px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    color: black;
+}
+
+.butt1 {
+    color: black;
+    background-color: black;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.stan {
+    width: 75px;
+    display: flex;
+    
+}
+
+.butt2 {
+    background-color: black;
+    border-color: blue;
+    cursor: pointer;
+}

